@@ -1,9 +1,6 @@
 {
     "extends": [
-      "standard-with-typescript",
-      "plugin:react/recommended",
-      "plugin:cypress/recommended"
-    ],
+      "standard-with-typescript"],
     "parserOptions": {
       "project": "./tsconfig.json"
     },
