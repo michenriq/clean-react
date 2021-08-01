@@ -4,15 +4,13 @@ import { RemoteAuthentication } from './remote-authentication'
 type SutTypes = {
   sut: RemoteAuthentication
   httpPostClientSpy: HttpPostClientSpy
-  url: string
 }
 const makeSut = (url: string = 'any_url'): SutTypes => {
   const httpPostClientSpy = new HttpPostClientSpy()
   const sut = new RemoteAuthentication(url, httpPostClientSpy)
   return {
     sut,
-    httpPostClientSpy,
-    url
+    httpPostClientSpy
   }
 }
 
