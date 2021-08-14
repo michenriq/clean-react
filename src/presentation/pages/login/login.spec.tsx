@@ -103,4 +103,10 @@ describe('Login Component', () => {
       password
     })
   })
+  test('should call Authentication only oce', () => {
+    const { sut, authenticationSpy } = makeSut()
+    simulateValidSubmit(sut)
+    simulateValidSubmit(sut)
+    expect(authenticationSpy.callsCount).toBe(1)
+  })
 })
