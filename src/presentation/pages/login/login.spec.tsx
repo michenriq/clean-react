@@ -41,8 +41,8 @@ const simulateValidSubmit = async (sut: RenderResult, email = faker.internet.ema
 }
 
 const populateEmailField = (sut: RenderResult, email = faker.internet.email()): void => {
-  const emailInput = sut.getByTestId('email')
-  fireEvent.input(emailInput, { target: { value: email } })
+  const emailIpt = sut.getByTestId('email')
+  fireEvent.input(emailIpt, { target: { value: email } })
 }
 const populatePasswordField = (sut: RenderResult, password = faker.internet.password()): void => {
   const passwordInput = sut.getByTestId('password')
