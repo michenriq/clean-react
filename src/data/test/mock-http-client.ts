@@ -1,8 +1,8 @@
 import { HttpPostClient, HttpPostParams, HttpResponse, HttpStatusCode } from '@/data/protocols/http'
 
 export class HttpPostClientSpy<T, R> implements HttpPostClient<T, R> {
-  url?: string;
-  body?: T;
+  url?: string
+  body?: T
   response: HttpResponse<R> = {
     statusCode: HttpStatusCode.ok
   }
@@ -11,6 +11,6 @@ export class HttpPostClientSpy<T, R> implements HttpPostClient<T, R> {
     this.url = params.url
     this.body = params.body
     this.url = params.url
-    return Promise.resolve(this.response)
+    return await Promise.resolve(this.response)
   }
 }
