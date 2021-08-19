@@ -7,7 +7,7 @@
     "start": "webpack serve --open",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test -- --watch",
-    "test:staged": "npm test -- --findRelatedTestes",
+    "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage",
     "test:clear": "jest --clearCache",
     "prepare": "husky install"

@@ -15,7 +15,9 @@
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-var": "error"
+    "react/jsx-uses-react": "off",
+    "react/jsx-uses-var": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/camelcase": "off"
   }
 }
