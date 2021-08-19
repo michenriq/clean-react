@@ -58,7 +58,7 @@
     "react-router-dom": "^5.2.0"
   },
   "lint-staged": {
-    "*.{ts,tx}": [
+    "*.{ts,tx,tsx}": [
       "eslint 'src/**' --fix",
       "npm run test:staged"
     ]
