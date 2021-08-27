@@ -65,9 +65,9 @@ describe('SignUp Component', () => {
     Helper.populateField(sut, 'name')
     Helper.testStatusForField(sut, 'name')
   })
-  test('should show valid name state if Validation succeeds', () => {
+  test('should show valid email state if Validation succeeds', () => {
     const { sut } = makeSut()
-    Helper.populateField(sut, 'name')
-    Helper.testStatusForField(sut, 'name')
+    Helper.populateField(sut, 'email')
+    Helper.testStatusForField(sut, 'email')
   })
 })
