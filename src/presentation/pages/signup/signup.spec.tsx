@@ -4,6 +4,8 @@ import SignUp from './signup'
 import { Helper, ValidationStub, AddAccountSpy } from '@/presentation/test'
 import faker from 'faker'
 import { testElementExists } from '@/presentation/test/form-helper'
+import { errorMonitor } from 'events'
+import { InvalidCredentialsError } from '@/domain/errors'
 
 type SutTypes = {
   sut: RenderResult
@@ -38,6 +40,10 @@ const simulateValidSubmit = async (sut: RenderResult, name = faker.name.findName
   const form = sut.getByTestId('form')
   fireEvent.submit(form)
   await waitFor(() => form)
+}
+const testElementText = (sut: RenderResult, fieldName: string, text: string): void => {
+  const mainErrorEl = sut.getByTestId(fieldName)
+  expect(mainErrorEl.textContent).toBe(text)
 }
 describe('SignUp Component', () => {
   afterEach(cleanup)
@@ -129,11 +135,20 @@ describe('SignUp Component', () => {
     expect(addAccountSpy.callsCount).toBe(1)
   })
 
-  test('should not call Authentication if form is invalid', async () => {
+  test('should not call AddAccount if form is invalid', async () => {
     const validationError = faker.random.words()
     const { sut, addAccountSpy } = makeSut({ validationError })
     await simulateValidSubmit(sut)
     fireEvent.submit(sut.getByTestId('form'))
     expect(addAccountSpy.callsCount).toBe(0)
+  })
+
+  test('should show error if AddAccount fails', async () => {
+    const { sut, addAccountSpy } = makeSut()
+    const error = new InvalidCredentialsError()
+    jest.spyOn(addAccountSpy, 'add').mockRejectedValueOnce(error)
+    await simulateValidSubmit(sut)
+    testElementText(sut, 'main-error', error.message)
+    Helper.testChildCount(sut, 'error-wrap', 1)
   })
 })
