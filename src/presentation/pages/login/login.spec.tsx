@@ -6,6 +6,7 @@ import { Login } from '@/presentation/pages'
 import { ValidationStub, AuthenticationSpy,SaveAccesstokenMock, Helper } from '@/presentation/test'
 import faker from 'faker'
 import { InvalidCredentialsError } from '@/domain/errors'
+import { testElementExists } from '@/presentation/test/form-helper'
 type SutTypes = {
   sut: RenderResult
   authenticationSpy: AuthenticationSpy
@@ -44,11 +45,6 @@ const simulateValidSubmit = async (sut: RenderResult, email = faker.internet.ema
   const form = sut.getByTestId('form')
   fireEvent.submit(form)
   await waitFor(() => form)
-}
-
-const testElementExists = (sut: RenderResult, fieldName: string): void => {
-  const el = sut.getByTestId(fieldName)
-  expect(el).toBeTruthy()
 }
 const testElementText = (sut: RenderResult, fieldName: string, text: string): void => {
   const mainErrorEl = sut.getByTestId(fieldName)
@@ -96,7 +92,7 @@ describe('Login Component', () => {
   test('should show spinner on submt', async () => {
     const { sut } = makeSut()
     await simulateValidSubmit(sut)
-    testElementExists(sut, 'spinner')
+    Helper.testElementExists(sut, 'spinner')
   })
   test('should call Authentication with correct values', async () => {
     const { sut, authenticationSpy } = makeSut()

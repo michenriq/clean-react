@@ -3,6 +3,7 @@ import { RenderResult, render, cleanup, fireEvent, waitFor } from '@testing-libr
 import SignUp from './signup'
 import { Helper, ValidationStub } from '@/presentation/test'
 import faker from 'faker'
+import { testElementExists } from '@/presentation/test/form-helper'
 
 type SutTypes = {
   sut: RenderResult
@@ -33,12 +34,6 @@ const simulateValidSubmit = async (sut: RenderResult, name = faker.name.findName
   fireEvent.submit(form)
   await waitFor(() => form)
 }
-
-const testElementExists = (sut: RenderResult, fieldName: string): void => {
-  const el = sut.getByTestId(fieldName)
-  expect(el).toBeTruthy()
-}
-
 describe('SignUp Component', () => {
   afterEach(cleanup)
   test('should start with initial state params', () => {
@@ -106,6 +101,6 @@ describe('SignUp Component', () => {
   test('should show spinner on submt', async () => {
     const { sut } = makeSut()
     await simulateValidSubmit(sut)
-    testElementExists(sut, 'spinner')
+    Helper.testElementExists(sut, 'spinner')
   })
 })
