@@ -27,22 +27,9 @@
 
     
 
-    .submit {
+    button {
       margin-top: 16px;
       cursor: pointer;
-
-      &:hover {
-        opacity: 0.9;
-      }
-
-      &:disabled {
-        background-color: $disabledBackground;
-        color: $disabledColor;
-
-        &:hover {
-          opacity: 1;
-        }
-      }
     }
 
     .link {

@@ -34,4 +34,17 @@ button {
   border-radius: 16px;
   border: none;
   line-height: 60px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+  
+  &:disabled {
+    background-color: $disabledBackground;
+    color: $disabledColor;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
