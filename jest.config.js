@@ -9,6 +9,10 @@ module.exports = {
     '!<rootDir>/src/main/config/**'
   ],
   coverageDirectory: 'coverage',
+  testPathIgnorePatterns: [
+    '!<rootDir>/node_modules/',
+    '!<rootDir>/src/main/test/cypress'
+  ],
   testEnvironment: 'jsdom',
   transform: {
     '.+\\.(tsx|ts)$': 'ts-jest'

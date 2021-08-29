@@ -6,11 +6,15 @@
   },
   "extends": [
     "standard-with-typescript",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:cypress/recommended"
   ],
-  "plugins": ["react"],
+  "plugins": ["react", "cypress"],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig-eslint.json"
+  },
+  "env": {
+    "cypress/globals": true
   },
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
@@ -19,6 +23,7 @@
     "react/jsx-uses-react": "off",
     "react/jsx-uses-var": "off",
     "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/camelcase": "off"
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/triple-slash-reference": "off"
   }
 }
