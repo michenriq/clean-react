@@ -1,4 +1,3 @@
-// Copy of https://github.com/bahmutov/cypress-angular-unit-test/blob/master/cypress/plugins/cy-ts-preprocessor.js
 const wp = require('@cypress/webpack-preprocessor')
 
 module.exports = wp({
@@ -9,8 +8,8 @@ module.exports = wp({
     module: {
       rules: [{
         test: /\.ts$/,
-        loader: 'ts-loader',
-        exclude: [/node_modules/]
+        exclude: /node_modules/,
+        loader: 'ts-loader'
       }]
     }
   }

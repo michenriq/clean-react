@@ -6,7 +6,6 @@ import { Login } from '@/presentation/pages'
 import { ValidationStub, AuthenticationSpy,SaveAccesstokenMock, Helper } from '@/presentation/test'
 import faker from 'faker'
 import { InvalidCredentialsError } from '@/domain/errors'
-import { testElementExists } from '@/presentation/test/form-helper'
 type SutTypes = {
   sut: RenderResult
   authenticationSpy: AuthenticationSpy

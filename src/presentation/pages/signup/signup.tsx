@@ -4,7 +4,6 @@ import { Header, Footer, Input, FormStatus, SubmitButton } from '@/presentation/
 import Context from '@/presentation/contexts/form/form-context'
 import { Validation } from '@/presentation/protocols/validation'
 import { AddAccount, SaveAccessToken } from '@/domain/usecases'
-import { AddAccountSpy } from '@/presentation/test'
 import { Link, useHistory } from 'react-router-dom'
 
 type Props = {

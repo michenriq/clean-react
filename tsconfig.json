@@ -6,7 +6,6 @@
       "dom.iterable",
       "esnext"
     ],
-    "types": ["cypress"],
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -23,6 +22,6 @@
     "src"
   ],
   "exclude": [
-    "src/main/test/cypress"
+    "src/main/test/cypress/**"
   ]
 }

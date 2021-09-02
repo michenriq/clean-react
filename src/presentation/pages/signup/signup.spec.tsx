@@ -6,8 +6,6 @@ import { Router } from 'react-router-dom'
 
 import { Helper, ValidationStub, AddAccountSpy, SaveAccesstokenMock } from '@/presentation/test'
 import faker from 'faker'
-import { testElementExists } from '@/presentation/test/form-helper'
-import { errorMonitor } from 'events'
 import { InvalidCredentialsError } from '@/domain/errors'
 
 type SutTypes = {
