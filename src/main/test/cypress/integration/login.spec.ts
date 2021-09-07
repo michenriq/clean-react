@@ -100,8 +100,7 @@ describe('Login', () => {
       }
     })
     cy.get('[data-testid="email"]').focus().type(faker.internet.email())
-    cy.get('[data-testid="password"]').focus().type(faker.random.alphaNumeric(5))
-    cy.get('[data-testid="submit"]').click()
+    cy.get('[data-testid="password"]').focus().type(faker.random.alphaNumeric(5)).type('{enter}')
     cy.get('[data-testid="spinner"]').should('not.exist')
     cy.get('[data-testid="error-wrap"]')
       .getByTestId('main-error').should('contain.text', 'Algo de errado aconteceu. Tente novamente')
