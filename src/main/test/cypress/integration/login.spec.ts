@@ -103,8 +103,8 @@ describe('Login', () => {
         accessToken: faker.datatype.uuid()
       }
     })
-    cy.get('[data-testid="email"]').focus().type('mango@gmail.com')
-    cy.get('[data-testid="password"]').focus().type('12345')
+    cy.get('[data-testid="email"]').focus().type(faker.internet.email())
+    cy.get('[data-testid="password"]').focus().type(faker.random.alphaNumeric(5))
     cy.get('[data-testid="submit"]').click()
     cy.url().should('eq', `${baseUrl}/`)
     cy.window().then(window => assert.isOk(window.localStorage.getItem('accessToken')))
